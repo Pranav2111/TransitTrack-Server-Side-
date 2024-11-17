@@ -4,7 +4,7 @@
   "description": "TransitTrack backend app",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -14,6 +14,6 @@
     "mongoose": "^5.9.10"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^3.1.7"
   }
 }

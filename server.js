@@ -1,7 +1,9 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const connectDB = require('./config/db');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
+const busRoutes = require('./routes/busRoutes');
+const formRequisiteRoutes = require('./routes/formRequisiteRoute');
 
 dotenv.config();
 
@@ -9,16 +11,12 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Error connecting to MongoDB:', err));
+connectDB();
 
 // Set up routes
 app.use('/api/auth', authRoutes);
+app.use('/api/bus', busRoutes);
+app.use('/api/form-requisite', formRequisiteRoutes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

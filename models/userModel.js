@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
-  username: {
+  name: {
     type: String,
     required: true,
-    unique: true,
   },
   email: {
     type: String,
@@ -15,6 +14,13 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true,
+  },
+  userType: {
+    type: String,
+    required: true,
+    enum: ['admin', 'driver', 'client'],
+    default: 'client',
+    message: '{VALUE} is not a valid user type',
   },
 });
 
