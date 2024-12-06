@@ -7,8 +7,8 @@ const {
 } = require('../controllers/busController');
 const authMiddleware = require('../middleware/authMiddleware');
 
-router.get('/scheduled-buses', authMiddleware, scheduledBuses);
-router.get('/bus-path', authMiddleware, getBusRoute);
-router.post('/feed-bus-route', authMiddleware, feedBusRoute);
+router.get('/bus/scheduled-buses', authMiddleware, scheduledBuses);
+router.get('/bus/bus-path', authMiddleware, getBusRoute);
+router.post('/bus/feed-bus-route', authMiddleware, feedBusRoute);
 
 module.exports = router;

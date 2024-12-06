@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 
 const BusSchema = new mongoose.Schema({
-  busNumber: {
+  bus_number: {
     type: String,
     required: true,
     unique: true,
   },
-  driverName: {
+  driver_name: {
+    type: String,
+  },
+  driver_id: {
     type: String,
   },
   origin: {
@@ -15,7 +18,7 @@ const BusSchema = new mongoose.Schema({
   destination: {
     type: String,
   },
-  availableSeats: {
+  available_seats: {
     type: Number,
   },
   origin_id: {
@@ -32,6 +35,12 @@ const BusSchema = new mongoose.Schema({
   },
   end_time: {
     type: Date,
+  },
+  origin_coordinates: {
+    type: Array,
+  },
+  destination_coordinates: {
+    type: Array,
   },
 });
 

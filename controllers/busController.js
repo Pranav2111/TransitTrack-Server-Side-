@@ -16,14 +16,13 @@ exports.scheduledBuses = async (req, res) => {
 
     res.status(200).json({ schedules: buses });
   } catch (error) {
-    console.error('Error fetching scheduled buses:', error);
     res
       .status(500)
       .json({ message: 'Server error while fetching scheduled buses.' });
   }
 };
 
-// Feed Bus Route
+// Feed Bus path
 exports.feedBusRoute = async (req, res) => {
   const { bus_number, path } = req.body;
 
@@ -35,8 +34,7 @@ exports.feedBusRoute = async (req, res) => {
       });
     }
 
-    const route = await BusRoute.findOne({ bus_number });
-
+    let route = await BusRoute.findOne({ bus_number });
     if (!route) {
       const newRoute = new BusRoute({
         bus_number,

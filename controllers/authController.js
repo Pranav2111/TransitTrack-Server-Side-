@@ -21,10 +21,15 @@ exports.signup = async (req, res) => {
     const userData = {
       name: newUser.name,
       email: newUser.email,
-      userTypeL: newUser.userType,
+      redirect_screen:
+        newUser.userType == 'driver' ? 'driver-dashboard' : 'client-dashboard',
     };
 
-    res.status(201).json({ message: 'User created', token, user: userData });
+    res.status(201).json({
+      message: 'User created',
+      token: `Bearer ${token}`,
+      user: userData,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -52,10 +57,15 @@ exports.login = async (req, res) => {
     const userData = {
       name: user.name,
       email: user.email,
-      userType: user.userType,
+      redirect_screen:
+        user.userType == 'driver' ? 'driver-dashboard' : 'client-dashboard',
     };
 
-    res.json({ message: 'Login successful', token, user: userData });
+    res.json({
+      message: 'Login successful',
+      token: `Bearer ${token}`,
+      user: userData,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
