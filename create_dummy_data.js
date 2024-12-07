@@ -183,6 +183,7 @@ const createBusData = (
     end_time: endTime,
     origin_coordinates: originCoordinates,
     destination_coordinates: destinationCoordinates,
+    completed: false,
   };
 };
 

@@ -42,7 +42,14 @@ const BusSchema = new mongoose.Schema({
   destination_coordinates: {
     type: Array,
   },
+  completed: {
+    type: Boolean,
+  },
 });
+
+BusSchema.statics.findIncomplete = function () {
+  return this.find({ completed: false });
+};
 
 const Bus = mongoose.model('Bus', BusSchema);
 module.exports = Bus;
