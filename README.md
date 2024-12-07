@@ -1,83 +1,41 @@
-# API Signup Example
+# TransitTrack
 
-This is an example of how to use a `POST` request to sign up a new user via the API.
+TransitTrack is a Bus Journey Management System with two distinct user interfaces: **Driver Interface** and **Client Interface**. The system allows drivers to manage their bus journeys, including live tracking, status updates, and journey completion. Meanwhile, clients can track bus statuses, select bus journeys, and adjust their travel preferences.
 
-## Endpoint
-`POST /api/auth/signup`
+## Features
 
-## Request
+### Driver Interface
+The Driver Interface enables drivers to:
+1. **Login** to the application.
+2. **View Assigned Bus**: After logging in, the driver can see the bus assigned to them for the journey.
+3. **Start the Journey**: The driver can start the journey, which will begin live tracking via geolocation.
+4. **Pause the Journey**: The driver can pause the journey at any point.
+5. **Mark Journey as Completed**: When the journey is completed, the driver can mark it as finished.
+6. **Live Tracking**: As the journey is in progress, the driver's location is continuously tracked and recorded in the database.
 
-### URL
-`https://transittrack-epfkadzi.b4a.run/api/auth/signup`
-
-### Body
-```json
-{
-  "name": "pranav",
-  "email": "pranav@gmail.com",
-  "password": "sssshhhhhhhhh🤫"
-}
-```
-
-# API Login Example
-
-This is an example of how to use a `POST` request to log in a user via the API.
-
-## Endpoint
-`POST /api/auth/login`
-
-## Request
-
-### URL
-`https://transittrack-epfkadzi.b4a.run/api/auth/login`
-
-### Headers
-- `Content-Type: application/json`
-- `Cookie: _gocomet.login_session=<SESSION_ID>`
-
-### Body
-```json
-{
-  "email": "client11@gmail.com",
-  "password": "client1111111"
-}
-```
-
-# API Bus Stops Retrieval Example
-
-This is an example of how to retrieve bus stop data via the API using an authenticated `GET` request.
-
-## Endpoint
-`GET /api/form-requisite/bus-stops`
-
-## Request
-
-### URL
-`https://transittrack-epfkadzi.b4a.run/api/form-requisite/bus-stops`
-
-### Headers
-- `Authorization: Bearer <JWT_TOKEN>`  
-  (Replace `<JWT_TOKEN>` with a valid JWT token obtained after successful authentication.)
+https://github.com/user-attachments/assets/763e5dfa-7759-44c1-989c-f02f2d82ba2b
 
 
-# API Scheduled Buses Retrieval Example
+### Client Interface
+The Client Interface allows clients to:
+1. **Login/Signup** to the application.
+2. **Select Origin and Destination**: Clients can choose their starting point and destination for the journey.
+3. **Select Bus**: Clients can pick the bus they want to travel on from a list of available buses.
+4. **View Live Bus Status**: Clients can track the live status of the bus, including real-time location updates.
+5. **Adjust Journey**: Clients can modify their journey based on the live status of the bus, making travel more flexible.
 
-This is an example of how to retrieve scheduled buses between an origin and destination via the API using an authenticated `GET` request.
+https://github.com/user-attachments/assets/10219fc8-a035-4182-99b4-d9d0258fb508
 
-## Endpoint
-`GET /api/bus/scheduled-buses`
 
-## Request
 
-### URL
-`https://transittrack-epfkadzi.b4a.run/api/bus/scheduled-buses?originId=<ORIGIN_ID>&destinationId=<DESTINATION_ID>`
 
-Replace `<ORIGIN_ID>` and `<DESTINATION_ID>` with the relevant bus station IDs for the origin and destination.
+### (Upcoming) Seat Selection and Booking
+This feature allows clients to:
+1. **Select Seats for Future Journeys**: Clients can choose their preferred seat on a bus for upcoming trips.
+2. **Book Seats**: Once seats are selected, clients can book them for a specific date and time.
+3. **Real-time Seat Availability**: The system will display real-time seat availability to ensure no double bookings are made.
+4. **Seat Booking Confirmation**: After booking a seat, the client will receive a confirmation of their booking.
+5. **Adjust Booking**: Clients can modify or cancel their seat booking up to a certain time before the journey starts.
+6. **Ticket Generation**: Once the booking is complete, a ticket with journey details is generated for the client.
 
-### Query Parameters
-- `originId`: The ID of the bus origin station (e.g., `MUM-001`).
-- `destinationId`: The ID of the bus destination station (e.g., `PUN-002`).
 
-### Headers
-- `Authorization: Bearer <JWT_TOKEN>`  
-  (Replace `<JWT_TOKEN>` with a valid JWT token obtained after successful authentication.)
