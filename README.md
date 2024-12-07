@@ -8,7 +8,7 @@ This is an example of how to use a `POST` request to sign up a new user via the 
 ## Request
 
 ### URL
-`http://localhost:5000/api/auth/signup`
+`https://transittrack-epfkadzi.b4a.run/api/auth/signup`
 
 ### Body
 ```json
@@ -29,7 +29,7 @@ This is an example of how to use a `POST` request to log in a user via the API.
 ## Request
 
 ### URL
-`http://localhost:5000/api/auth/login`
+`https://transittrack-epfkadzi.b4a.run/api/auth/login`
 
 ### Headers
 - `Content-Type: application/json`
@@ -53,7 +53,7 @@ This is an example of how to retrieve bus stop data via the API using an authent
 ## Request
 
 ### URL
-`http://localhost:5000/api/form-requisite/bus-stops`
+`https://transittrack-epfkadzi.b4a.run/api/form-requisite/bus-stops`
 
 ### Headers
 - `Authorization: Bearer <JWT_TOKEN>`  
@@ -70,7 +70,7 @@ This is an example of how to retrieve scheduled buses between an origin and dest
 ## Request
 
 ### URL
-`http://localhost:5000/api/bus/scheduled-buses?originId=<ORIGIN_ID>&destinationId=<DESTINATION_ID>`
+`https://transittrack-epfkadzi.b4a.run/api/bus/scheduled-buses?originId=<ORIGIN_ID>&destinationId=<DESTINATION_ID>`
 
 Replace `<ORIGIN_ID>` and `<DESTINATION_ID>` with the relevant bus station IDs for the origin and destination.
 
